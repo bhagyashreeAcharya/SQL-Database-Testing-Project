@@ -1,9 +1,9 @@
 # SQL Database Testing Project
 
 ## Overview
-This project demonstrates database testing using MySQL. It simulates a real-world e-commerce backend system and validates data integrity, relationships, and business logic using SQL queries.
+This project demonstrates practical database testing using MySQL by simulating an e-commerce backend system. It includes schema creation, test data insertion, and validation queries to verify data integrity, table relationships, and business logic.
 
-The project includes database schema creation, test data setup, and comprehensive validation queries written from a QA testing perspective.
+These validations represent backend database checks typically performed by QA engineers after API or UI operations.
 
 ---
 
@@ -16,91 +16,115 @@ The project includes database schema creation, test data setup, and comprehensiv
 
 ---
 
-## Database Structure
+## Project Structure
 
-### customers table
-Stores customer information.
+```
+SQL-Database-Testing-Project
+│
+├── schema.sql                # Creates database and tables
+├── test_data.sql             # Inserts test data
+├── validation_queries.sql    # Database validation queries
+├── README.md
+│
+└── screenshots/              # Execution evidence
+    ├── 01_tables_created.png
+    ├── 02_customers_data.png
+    ├── 03_orders_data.png
+    ├── 04_join_validation.png
+    └── Additional test case validation screenshots
+```
 
-Fields:
+---
+
+## Database Tables
+
+### customers
 - customer_id (Primary Key)
 - name
 - email
 
-### orders table
-Stores order details placed by customers.
-
-Fields:
+### orders
 - order_id (Primary Key)
 - customer_id (Foreign Key)
 - product_name
 - amount
 
 Relationship:
+```
 customers.customer_id → orders.customer_id
+```
+
+One customer can have multiple orders.
 
 ---
 
-## Testing Scope
+## How to Execute
 
-The following database testing validations were performed:
+Step 1: Open MySQL Workbench and connect to your MySQL server.
 
-### Data Validation
-- Verify records exist in tables
-- Validate correct customer and order data
-- Validate email format
+Step 2: Run schema.sql  
+Creates the ecommerce_db database and tables.
 
-### Relational Integrity Testing
-- Verify foreign key relationships
-- Validate orders are linked to valid customers
+```sql
+SOURCE path_to/schema.sql;
+```
 
-### Business Logic Validation
-- Calculate total order amount per customer
-- Verify SUM, AVG, MIN, MAX calculations
+Step 3: Run test_data.sql  
+Inserts customer and order test data.
 
-### Duplicate Detection
-- Identify duplicate primary keys
+```sql
+SOURCE path_to/test_data.sql;
+```
 
-### Filtering and Search Testing
-- Validate WHERE, IN, LIKE queries
+Step 4: Run validation_queries.sql  
+Execute queries individually or run full script:
 
-### Sorting Validation
-- Validate ORDER BY functionality
+```sql
+SOURCE path_to/validation_queries.sql;
+```
 
-### Negative Testing
-- Check for NULL values
-- Check for invalid relationships
+Note: SQL files are stored in GitHub, but execution must be performed in MySQL Workbench or MySQL CLI.
 
 ---
 
-## Files Included
+## Testing Performed
 
-schema.sql  
-Contains database and table creation scripts.
-
-test_data.sql  
-Contains test data inserted into tables.
-
-validation_queries.sql  
-Contains SQL queries used to perform database testing and validation.
-
----
-
-## SQL Skills Demonstrated
-
-- SELECT
-- WHERE
-- INSERT
-- INNER JOIN
-- GROUP BY
-- ORDER BY
-- IN, NOT IN
-- LIKE
-- COUNT, SUM, AVG, MIN, MAX
-- Data Integrity Validation
-- Relational Database Testing
+- Data existence validation
+- Data accuracy validation
+- Foreign key relationship validation
+- JOIN validation
+- Aggregation validation (SUM, COUNT, AVG)
+- Duplicate record detection
+- NULL value validation
+- Filtering and sorting validation
 
 ---
 
-## Purpose
+## Execution Evidence
 
-This project demonstrates practical database testing skills required for QA and Software Testing roles. It simulates real-world backend validation scenarios performed by testers after API or UI operations.
+Execution screenshots demonstrating schema creation, test data insertion, and validation query results are available in the `screenshots/` folder.
+
+These include:
+- Table creation confirmation
+- Customer and order data validation
+- JOIN validation for relational integrity
+- Individual test case validation queries
+
+
+---
+
+## Skills Demonstrated
+
+- Database testing using SQL
+- Data validation and verification
+- Relational integrity testing using JOIN
+- Backend data verification
+- Test data preparation
+- SQL query design and validation
+- GitHub project version control
+
+---
+
+## Why This Project Matters
+
+This project demonstrates real-world database testing practices used by QA engineers to validate backend data integrity and relationships. It reflects practical testing scenarios where database records must be verified after application operations.
