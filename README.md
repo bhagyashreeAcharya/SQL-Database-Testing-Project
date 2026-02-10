@@ -60,30 +60,40 @@ One customer can have multiple orders.
 
 ## How to Execute
 
-Step 1: Open MySQL Workbench and connect to your MySQL server.
+Step 1: Clone or download this repository to your local system.
 
-Step 2: Run schema.sql  
-Creates the ecommerce_db database and tables.
+Step 2: Open MySQL Workbench and connect to your MySQL server.
 
-```sql
-SOURCE path_to/schema.sql;
-```
+---
 
-Step 3: Run test_data.sql  
-Inserts customer and order test data.
+Step 3: Run schema.sql  
+Creates the ecommerce_db database and required tables.
 
 ```sql
-SOURCE path_to/test_data.sql;
+SOURCE schema.sql;
 ```
 
-Step 4: Run validation_queries.sql  
-Execute queries individually or run full script:
+---
+
+Step 4: Run test_data.sql  
+Inserts controlled test data into customers and orders tables.
 
 ```sql
-SOURCE path_to/validation_queries.sql;
+SOURCE test_data.sql;
 ```
 
-Note: SQL files are stored in GitHub, but execution must be performed in MySQL Workbench or MySQL CLI.
+---
+
+Step 5: Open validation_queries.sql  
+This file contains multiple database validation test cases used to verify data integrity, relationships, and business logic.
+
+Execute queries individually based on the validation scenario, or run the full file if needed.
+
+```sql
+SOURCE validation_queries.sql;
+```
+
+Note: SQL scripts must be executed from your local MySQL environment. GitHub is used for version control and project documentation.
 
 ---
 
@@ -146,4 +156,5 @@ These include:
 ## Why This Project Matters
 
 This project demonstrates real-world database testing practices used by QA engineers to validate backend data integrity and relationships. It reflects practical testing scenarios where database records must be verified after application operations.
+
 
