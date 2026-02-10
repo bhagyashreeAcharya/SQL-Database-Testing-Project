@@ -100,6 +100,24 @@ Note: SQL files are stored in GitHub, but execution must be performed in MySQL W
 
 ---
 
+## How Database Testing Fits in Application Flow
+
+In real-world applications, data flows through multiple layers:
+
+Client (UI / Frontend) → API Server → Database
+
+Example testing scenario:
+
+1. User performs an action (e.g., places an order) through UI or API
+2. API processes the request and stores data in the database
+3. QA engineer validates database records using SQL queries
+4. Tester verifies data integrity, relationships, and business logic
+
+This project simulates this backend validation process using SQL queries.
+
+
+---
+
 ## Execution Evidence
 
 Execution screenshots demonstrating schema creation, test data insertion, and validation query results are available in the `screenshots/` folder.
@@ -128,3 +146,4 @@ These include:
 ## Why This Project Matters
 
 This project demonstrates real-world database testing practices used by QA engineers to validate backend data integrity and relationships. It reflects practical testing scenarios where database records must be verified after application operations.
+
